@@ -3,8 +3,6 @@ package edu.lemon.DemoInternetStore.utils;
 import edu.lemon.DemoInternetStore.model.dao.CustomerDao;
 import edu.lemon.DemoInternetStore.model.entity.CustomerEntity;
 
-import java.util.Optional;
-
 public class EntityToDao {
     public static CustomerDao customerEntityToCustomerDao(CustomerEntity customerEntity) {
         return CustomerDao.builder()

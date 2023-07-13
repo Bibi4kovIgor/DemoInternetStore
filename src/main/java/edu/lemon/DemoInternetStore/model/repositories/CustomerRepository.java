@@ -1,10 +1,7 @@
 package edu.lemon.DemoInternetStore.model.repositories;
 
-import edu.lemon.DemoInternetStore.model.dao.CustomerDao;
 import edu.lemon.DemoInternetStore.model.entity.CustomerEntity;
-import edu.lemon.DemoInternetStore.utils.EntityToDao;
 import edu.lemon.DemoInternetStore.utils.MockedData;
-import lombok.Data;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
