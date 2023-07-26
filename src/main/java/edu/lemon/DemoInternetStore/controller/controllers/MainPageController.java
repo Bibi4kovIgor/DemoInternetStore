@@ -1,8 +1,9 @@
 package edu.lemon.DemoInternetStore.controller.controllers;
 
 import edu.lemon.DemoInternetStore.controller.services.CustomerService;
-import edu.lemon.DemoInternetStore.model.dao.CustomerDao;
+import edu.lemon.DemoInternetStore.model.dto.CustomerDto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,11 +20,16 @@ public class MainPageController {
     @GetMapping(value = {"/", "/index", "/home"})
     public ModelAndView index(
             @ModelAttribute("response") ModelMap model,
-            @RequestParam("name") String name) {
-        Optional<CustomerDao> customerDaoOptional = customerService.getUserInfoByName(name);
+            @RequestParam(value = "name", required = false) String name) {
+        Optional<CustomerDto> customerDaoOptional = customerService.getUserInfoByName(name);
+/*
+        ResponseEntity<CustomerDto> response =
+                customerDaoOptional.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
+*/
+
         String responseString = customerDaoOptional.isEmpty()
                 ? "User was not found"
-                : customerDaoOptional.get().toString();
+                : customerDaoOptional.toString();
         model.addAttribute("responseString", responseString);
         return new ModelAndView("index", model);
     }

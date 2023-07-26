@@ -1,4 +1,4 @@
-package edu.lemon.DemoInternetStore.model.dao;
+package edu.lemon.DemoInternetStore.model.dto;
 
 import lombok.Builder;
 import lombok.Data;
@@ -9,7 +9,7 @@ import java.util.UUID;
 @Data
 @Builder
 
-public class CustomerDao {
+public class CustomerDto {
     @NonNull private UUID id;
     @NonNull private String firstName;
     @NonNull private String lastName;

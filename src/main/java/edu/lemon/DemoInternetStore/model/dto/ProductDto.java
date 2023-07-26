@@ -1,4 +1,4 @@
-package edu.lemon.DemoInternetStore.model.dao;
+package edu.lemon.DemoInternetStore.model.dto;
 
 import lombok.Builder;
 import lombok.Data;
@@ -9,12 +9,12 @@ import java.util.UUID;
 
 @Data
 @Builder
-public class ProductDao {
+public class ProductDto {
     @NonNull private UUID id;
     @NonNull private String name;
-    @NonNull private CategoryDao categoryDao;
+    @NonNull private CategoryDto categoryDao;
     private int quantity;
     private BigDecimal price;
-    @NonNull SupplierDao supplierDao;
+    @NonNull SupplierDto supplierDto;
     private String description;
 }

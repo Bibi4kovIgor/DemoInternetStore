@@ -1,11 +1,11 @@
 package edu.lemon.DemoInternetStore.utils;
 
-import edu.lemon.DemoInternetStore.model.dao.CustomerDao;
+import edu.lemon.DemoInternetStore.model.dto.CustomerDto;
 import edu.lemon.DemoInternetStore.model.entity.CustomerEntity;
 
 public class EntityToDao {
-    public static CustomerDao customerEntityToCustomerDao(CustomerEntity customerEntity) {
-        return CustomerDao.builder()
+    public static CustomerDto customerEntityToCustomerDao(CustomerEntity customerEntity) {
+        return CustomerDto.builder()
                 .age(customerEntity.getAge())
                 .email(customerEntity.getEmail())
                 .phone(customerEntity.getPhone())

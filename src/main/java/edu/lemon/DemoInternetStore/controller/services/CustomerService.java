@@ -1,6 +1,6 @@
 package edu.lemon.DemoInternetStore.controller.services;
 
-import edu.lemon.DemoInternetStore.model.dao.CustomerDao;
+import edu.lemon.DemoInternetStore.model.dto.CustomerDto;
 import edu.lemon.DemoInternetStore.model.entity.CustomerEntity;
 import edu.lemon.DemoInternetStore.model.repositories.CustomerRepository;
 import edu.lemon.DemoInternetStore.utils.EntityToDao;
@@ -13,8 +13,8 @@ import java.util.Optional;
 public class CustomerService {
     @Autowired
     CustomerRepository customerRepository;
-    public Optional<CustomerDao> getUserInfoByName(String name) {
-        Optional<CustomerEntity> optionalCustomerEntity = customerRepository.getUserInfoByName(name);
+    public Optional<CustomerDto> getUserInfoByName(String name) {
+        Optional<CustomerEntity> optionalCustomerEntity = customerRepository.findByFirstName(name);
         return optionalCustomerEntity.map(EntityToDao::customerEntityToCustomerDao);
     }
 }

@@ -1,0 +1,9 @@
+FROM mariadb:lts
+RUN apt update && apt install nano
+EXPOSE 3306
+ENV MARIADB_USER admin
+ENV MARIADB_PASSWORD admin
+ENV MARIADB_ROOT_PASSWORD root
+ENV MARIADB_DATABASE internetstore
+ENV MARIADB_ROOT_HOST localhost
+
