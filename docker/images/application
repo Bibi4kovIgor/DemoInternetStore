@@ -1,0 +1,8 @@
+FROM amazoncorretto:17.0.5-alpine
+EXPOSE 8082
+RUN addgroup -S spring-group && adduser -S spring -G spring-group
+COPY io.log /var/logs/io.log
+USER spring:spring-group
+ARG JAR_FILE=internetstore.jar
+COPY ${JAR_FILE} app.jar
+ENTRYPOINT ["java","-jar", "app.jar"]

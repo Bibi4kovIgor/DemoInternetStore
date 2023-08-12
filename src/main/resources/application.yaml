@@ -1,28 +1,22 @@
 server:
   port: 8082
 
-#spring:
-#  r2dbc:
-#    url: r2dbc:mariadb://localhost:3306/internetstore
-#    username: root
-#    password: admin
-#    driver-class-name: org.mariadb.jdbc.Driver
 
 spring:
   datasource:
-    url: jdbc:mariadb://localhost:3306/internetstore
-    username: root
-    password: root
-    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:postgresql://localhost:5432/internetstore
+    username: admin
+    password: admin
 
-    hikari:
-      max-lifetime: 60000
-      connection-timeout: 5000
-      validation-timeout: 30000
+  flyway:
+    url: jdbc:postgresql://localhost:5432/internetstore?ssl=false
+    user: admin
+    password: admin
+    locations: classpath:/db/migrations/
 
   jpa:
-    hibernate.ddl-auto: create-drop
+    hibernate.ddl-auto: validate
     show-sql: true
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MariaDBDialect
+        dialect: org.hibernate.dialect.PostgreSQLDialect
