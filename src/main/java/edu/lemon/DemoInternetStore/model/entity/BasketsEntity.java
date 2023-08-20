@@ -6,11 +6,10 @@ import lombok.*;
 import java.time.Instant;
 import java.util.UUID;
 
-@Builder
-@Getter
-@Setter
-@NoArgsConstructor
+@Data
 @AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Entity
 @Table(name = "baskets")
 public class BasketsEntity {

@@ -1,15 +1,11 @@
 package edu.lemon.DemoInternetStore.model.dto;
 
 import jakarta.annotation.Nullable;
-import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import lombok.*;
+import lombok.Builder;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Set;
 
 @Builder
 public record ProductsDto(

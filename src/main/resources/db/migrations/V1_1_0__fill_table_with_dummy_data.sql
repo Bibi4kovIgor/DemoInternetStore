@@ -1,5 +1,3 @@
-CREATE EXTENSION if not exists pgcrypto;
-
 -- documents
 insert into documents(tax_id, passport, additional_info) values
 (11155544874, '447AAAd', ' '),

@@ -4,7 +4,6 @@ import edu.lemon.DemoInternetStore.controller.services.CustomersService;
 import edu.lemon.DemoInternetStore.controller.services.ProductsService;
 import edu.lemon.DemoInternetStore.model.dto.CustomersDto;
 import edu.lemon.DemoInternetStore.model.dto.ProductsDto;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -48,13 +47,13 @@ public class MainPageController {
             @RequestParam(value = "name", required = false) String name) {
         model.addAttribute("customers", customersService.getCustomerByFirstName(name));
         model.addAttribute("customerType", CustomersDto.class);
-        return new ModelAndView("/pages/customers_list", model);
+        return new ModelAndView("/pages/customers", model);
     }
 
     @GetMapping("/products")
     public ModelAndView getProductsList(ModelMap modelMap){
         return new ModelAndView(
-                "/pages/products_list",
+                "/pages/products",
                 new ModelMap()
                         .addAttribute("products", productsService.getAllProducts())
                         .addAttribute("productType", ProductsDto.builder().build()));

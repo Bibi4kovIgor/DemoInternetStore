@@ -1,18 +1,9 @@
+# All profiles properties
 server:
   port: 8082
 
-
 spring:
-  datasource:
-    url: jdbc:postgresql://localhost:5432/internetstore
-    username: admin
-    password: admin
-
-  flyway:
-    url: jdbc:postgresql://localhost:5432/internetstore?ssl=false
-    user: admin
-    password: admin
-    locations: classpath:/db/migrations/
+  profiles.active: dev
 
   jpa:
     hibernate.ddl-auto: validate
@@ -20,3 +11,21 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 676573584701-eu50l159oefej8mgmes9c03ntfpf8nbf.apps.googleusercontent.com
+            client-secret: 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
+
+          facebook:
+            client-id: 856899978706@developer.gserviceaccount.com
+            client-secret:
+#  security:
+#    user:
+#      name: "admin"
+#      password: "admin"
+#      roles:
+#        - "admin"

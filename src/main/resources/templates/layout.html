@@ -17,8 +17,8 @@
           crossorigin="anonymous"></script>
 </head>
 <body>
-  <div th:replace="fragments/header :: header">Header</div>
+  <div layout:replace="fragments/header">Header</div>
   <div layout:fragment="content"></div>
-  <div th:replace="fragments/footer :: footer">Footer</div>
+  <div layout:replace="fragments/footer">Footer</div>
 </body>
 </html>

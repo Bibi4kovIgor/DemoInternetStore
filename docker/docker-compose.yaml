@@ -27,20 +27,20 @@ services:
     ports:
       - "5433:80"
 
-#  application:
-#    networks:
-#      - default
-#    build:
-#      context: ./images
-#      dockerfile: application
-#    depends_on:
-#      - server
-##      server:
-##        condition: service_healthy
-#    ports:
-#      - "8082:8082"
-#    volumes:
-#      - /var/logs:/E/Work/Lemon_School/Lesson_36_42/InternetStore/DemoInternetStore/logs
+  application:
+    networks:
+      - default
+    build:
+      context: ./images
+      dockerfile: application
+    depends_on:
+      - server
+#      server:
+#        condition: service_healthy
+    ports:
+      - "8082:8082"
+    volumes:
+      - /var/logs:/E/Work/Lemon_School/Lesson_36_42/InternetStore/DemoInternetStore/logs
 
 networks:
   default:

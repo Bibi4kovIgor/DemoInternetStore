@@ -1,14 +1,12 @@
 package edu.lemon.DemoInternetStore.controller.controllers;
 
 import edu.lemon.DemoInternetStore.controller.services.AdminService;
+import edu.lemon.DemoInternetStore.controller.services.ProductsService;
 import edu.lemon.DemoInternetStore.model.dto.CustomersDto;
 import edu.lemon.DemoInternetStore.model.dto.ProductsDto;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -18,10 +16,30 @@ import java.util.Arrays;
 import java.util.Base64;
 
 @Controller
+@RequestMapping(path = "/admin")
 public class AdminController {
 
-    @Autowired
-    private AdminService adminService;
+    private final AdminService adminService;
+    private final ProductsService productsService;
+
+    public AdminController(AdminService adminService, ProductsService productsService) {
+        this.adminService = adminService;
+        this.productsService = productsService;
+    }
+
+    @GetMapping(value = "/products")
+    public ModelAndView products(){
+        return new ModelAndView(
+                "/pages/admin/admin_products",
+                new ModelMap()
+                        .addAttribute("products", productsService.getAllProducts())
+                        .addAttribute("productType", ProductsDto.builder().build()));
+    }
+
+    @GetMapping(value = "/customers")
+    public ModelAndView customers(){
+        return new ModelAndView("/pages/admin/admin_customers");
+    }
 
 
     @PostMapping(value = "/add-customer")
@@ -65,6 +83,6 @@ public class AdminController {
                         .vendorCode(vendorCode)
                         .description(description)
                         .build());
-        return new RedirectView("/products");
+        return new RedirectView("/admin/products");
     }
 }

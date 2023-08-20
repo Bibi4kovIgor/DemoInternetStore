@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://server:5432/internetstore
+    username: admin
+    password: admin
+
+
+  flyway:
+    url: jdbc:postgresql://server:5432/internetstore?ssl=false
+    user: admin
+    password: admin
+    locations: classpath:/db/migrations/
+
