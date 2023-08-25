@@ -6,11 +6,12 @@ spring:
   profiles.active: dev
 
   jpa:
-    hibernate.ddl-auto: validate
     show-sql: true
     properties:
       hibernate:
+        ddl-auto: validate
         dialect: org.hibernate.dialect.PostgreSQLDialect
+        default_schema: "public"
 
   security:
     oauth2:
@@ -22,7 +23,9 @@ spring:
 
           facebook:
             client-id: 856899978706@developer.gserviceaccount.com
-            client-secret:
+            client-secret: f4ad5d0c82e38c3203a2185a46a3da2a
+
+# Mocked data for test access without security implementation
 #  security:
 #    user:
 #      name: "admin"

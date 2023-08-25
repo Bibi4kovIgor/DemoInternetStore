@@ -1,5 +1,6 @@
 spring:
   datasource:
+    initialization-mode: always
     url: jdbc:postgresql://localhost:5432/internetstore
     username: admin
     password: admin
@@ -10,4 +11,9 @@ spring:
     user: admin
     password: admin
     locations: classpath:/db/migrations/
+
+  thymeleaf:
+    prefix: classpath:/templates
+    suffix: ".html"
+
 
