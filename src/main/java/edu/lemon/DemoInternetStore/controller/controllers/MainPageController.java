@@ -53,8 +53,8 @@ public class MainPageController {
     @GetMapping("/products")
     public ModelAndView getProductsList(ModelMap modelMap){
         return new ModelAndView(
-                "/pages/products",
-                new ModelMap()
+                "pages/products",
+                modelMap
                         .addAttribute("products", productsService.getAllProducts())
                         .addAttribute("productType", ProductsDto.builder().build()));
     }

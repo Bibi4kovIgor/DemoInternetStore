@@ -13,7 +13,7 @@ spring:
     locations: classpath:/db/migrations/
 
   thymeleaf:
-    prefix: classpath:/templates
+    prefix: classpath:/templates/
     suffix: ".html"
 
 

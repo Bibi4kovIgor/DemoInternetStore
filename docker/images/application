@@ -5,7 +5,7 @@ EXPOSE 8082
 COPY io.log /var/logs/io.log
 #USER spring:spring-group
 WORKDIR /app
-ARG JAR_FILE_INPUT=internetstore-jar-with-dependencies.jar
+ARG JAR_FILE_INPUT=internetstore.jar
 ARG JAR_FILE_OUTPUT=app.jar
 COPY ${JAR_FILE_INPUT} ${JAR_FILE_OUTPUT}
 RUN pwd  \

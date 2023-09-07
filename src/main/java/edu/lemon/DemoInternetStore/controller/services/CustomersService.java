@@ -9,8 +9,11 @@ import java.util.Optional;
 
 @Service
 public class CustomersService {
-    @Autowired
-    CustomersRepository customersRepository;
+    private final CustomersRepository customersRepository;
+
+    public CustomersService(CustomersRepository customersRepository) {
+        this.customersRepository = customersRepository;
+    }
 
     public Optional<CustomersDto> getUserInfoByName(String name) {
         return customersRepository.findByFirstName(name);
