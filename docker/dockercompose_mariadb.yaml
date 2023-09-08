@@ -1,0 +1,15 @@
+version: "3.9"
+volumes:
+  data:
+services:
+  db:
+    image: mariadb:lts
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: internetstore
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
+    volumes:
+      - data:/var/lib/mysql
+    ports:
+      - "3306:3306"

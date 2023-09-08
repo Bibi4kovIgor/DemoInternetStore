@@ -1,2 +1,34 @@
+# All profiles properties
 server:
   port: 8082
+
+spring:
+  profiles.active: prod
+
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        ddl-auto: validate
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        default_schema: "public"
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 676573584701-eu50l159oefej8mgmes9c03ntfpf8nbf.apps.googleusercontent.com
+            client-secret: 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
+
+          facebook:
+            client-id: 856899978706@developer.gserviceaccount.com
+            client-secret: f4ad5d0c82e38c3203a2185a46a3da2a
+
+# Mocked data for test access without security implementation
+#  security:
+#    user:
+#      name: "admin"
+#      password: "admin"
+#      roles:
+#        - "admin"

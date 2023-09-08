@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    initialization-mode: always
+    url: jdbc:postgresql://localhost:5432/internetstore
+    username: admin
+    password: admin
+
+
+  flyway:
+    url: jdbc:postgresql://localhost:5432/internetstore?ssl=false
+    user: admin
+    password: admin
+    locations: classpath:/db/migrations/
+
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: ".html"
+
+
