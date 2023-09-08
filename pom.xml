@@ -72,48 +72,10 @@
 			<artifactId>thymeleaf-layout-dialect</artifactId>
 			<version>3.2.1</version>
 		</dependency>
-		<dependency>
-			<groupId>nz.net.ultraq.groovy</groupId>
-			<artifactId>groovy-extensions</artifactId>
-			<version>2.0.0</version>
-		</dependency>
-		<dependency>
-			<groupId>nz.net.ultraq.thymeleaf</groupId>
-			<artifactId>thymeleaf-expression-processor</artifactId>
-			<version>3.1.1</version>
-		</dependency>
 	</dependencies>
 
 	<build>
 		<plugins>
-			<plugin>
-				<artifactId>maven-assembly-plugin</artifactId>
-				<version>3.6.0</version>
-				<executions>
-					<execution>
-						<phase>package</phase>
-						<goals>
-							<goal>single</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<finalName>internetstore</finalName>
-					<appendAssemblyId>false</appendAssemblyId>
-					<outputDirectory>${project.basedir}/docker/images</outputDirectory>
-					<descriptorRefs>
-						<descriptorRef>jar-with-dependencies</descriptorRef>
-					</descriptorRefs>
-					<archive>
-						<manifest>
-							<addClasspath>true</addClasspath>
-							<classpathPrefix>libs/</classpathPrefix>
-							<mainClass>edu.lemon.DemoInternetStore.Application</mainClass>
-						</manifest>
-					</archive>
-				</configuration>
-			</plugin>
-
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
@@ -124,6 +86,8 @@
 							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>
+					<finalName>internetstore</finalName>
+					<outputDirectory>${project.basedir}/docker/images</outputDirectory>
 				</configuration>
 			</plugin>
 		</plugins>
